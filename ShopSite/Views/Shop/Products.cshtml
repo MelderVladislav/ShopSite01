@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PRODUCT>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Products</h2>
+@Html.Action("Categories");
+<br />
+<br/>
+@{ 
+    var temp = Model.First();
+}
+<p>Категория товаров: @temp.CATEGORY.CATEGORY_NAME</p>
+<p>Описание: @temp.CATEGORY.CATEGORY_DESCRIPTION</p>
+<br/>
+@foreach(PRODUCT prd in Model)
+{
+    <img src="@prd.PRODUCT_PICTURE_ADDRESS"/>
+    <p>Название: @prd.PRODUCT_NAME</p>
+    <p>Описание: @prd.PRODUCT_DESCRIPTION</p>
+    <p>Производитель: @prd.PRODUCTS_COUNTRY</p>
+    <p>Стоимость: @prd.PRODUCT_PRICE</p>
+    <br/>
+    <br/>
+}
