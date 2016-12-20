@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Products</h2>
-@Html.Action("Categories");
+
+@Html.Action("Categories")
 <br />
 <br/>
 @{ 
@@ -14,13 +14,39 @@
 <p>Категория товаров: @temp.CATEGORY.CATEGORY_NAME</p>
 <p>Описание: @temp.CATEGORY.CATEGORY_DESCRIPTION</p>
 <br/>
+<p id="metka"></p>
+<input type="button" value="Очистить корзину" onclick="clearStorage();" />
+<h2>Товары</h2>
+
+<script>
+    function addStorage(productId)
+    {
+        var currentStorage = window.localStorage["order"];
+        if (currentStorage == null) currentStorage = "";
+        var stringId = "" + productId + "";
+        if (currentStorage.indexOf(stringId) == -1) {
+            currentStorage += productId + "&";
+
+            window.localStorage["order"] = currentStorage;
+
+            var el = document.getElementById("metka");
+            el.innerHTML = window.localStorage["order"];
+        }
+    }
+    function clearStorage()
+    {
+        window.localStorage["order"] = "";
+    }
+</script>
 @foreach(PRODUCT prd in Model)
 {
-    <img src="@prd.PRODUCT_PICTURE_ADDRESS"/>
-    <p>Название: @prd.PRODUCT_NAME</p>
+    <img src="@prd.PRODUCT_PICTURE_ADDRESS" width="150" height="100"/>
+    <p>Наименование: @prd.PRODUCT_NAME</p>
     <p>Описание: @prd.PRODUCT_DESCRIPTION</p>
     <p>Производитель: @prd.PRODUCTS_COUNTRY</p>
     <p>Стоимость: @prd.PRODUCT_PRICE</p>
+    <input type="button" value="Добавить в корзину" onclick="addStorage(@prd.PRODUCT_ID);"/>
     <br/>
     <br/>
 }
+
