@@ -1,0 +1,23 @@
+﻿@model List<PRODUCT> 
+@{
+    ViewBag.Title = "Basket";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Ваши покупки </h2>
+@{ 
+
+    int counter = 1;
+    decimal commonPrice=0;
+}
+@if (Model.Count != 0)
+{
+    foreach (PRODUCT prd in Model)
+    {
+    <p>@{ @counter} @prd.PRODUCT_NAME - @prd.PRODUCT_PRICE галеонов </p>
+                counter++;
+                commonPrice += prd.PRODUCT_PRICE;
+            }
+        }
+<h3>Общая сумма покупки: @commonPrice</h3>
+<input type="button" value="Перейти к оплате"/>
