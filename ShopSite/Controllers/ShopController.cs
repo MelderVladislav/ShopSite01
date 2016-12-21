@@ -29,28 +29,43 @@ namespace ShopSite.Controllers
        
         public ActionResult Basket()
         {
+            HttpCookie cookieOrder = Request.Cookies["order"];
+            HttpCookie cookie1;
+            if (cookieOrder == null)
+            {
+                
+                cookie1 = new HttpCookie("order","");
+                cookie1.Path = "/Shop";
+                Response.Cookies.Add(cookie1); 
+            }
+
             string MyCookie = Request.Cookies["order"].Value;
+
             string[] masProducts = MyCookie.Split('&');
             u0263406_shopBaseEntities context = new u0263406_shopBaseEntities();
             int tempId;
-            List<PRODUCT> purchaseList=new List<PRODUCT>();
+            List<PRODUCT> purchaseList = new List<PRODUCT>();
             PRODUCT tempProduct;
             bool tempConvert;
-            if (masProducts.Length!=0)
-            foreach (string str in masProducts)
-            {
-              
+            string check = "";
+            if (masProducts.Length != 0)
+                foreach (string str in masProducts)
+                {
+
                     tempConvert = Int32.TryParse(str.ToString(), out tempId);
                     if (tempConvert)
                     {
-                        tempProduct = context.PRODUCT.Where(c => c.CATEGORY_ID == tempId).ToList().FirstOrDefault();
+                        tempProduct = context.PRODUCT.Where(c => c.PRODUCT_ID == tempId).ToList().FirstOrDefault();
                         if (tempProduct != null)
                         {
+                            check += str;
                             purchaseList.Add(tempProduct);
                         }
                     }
 
-            }
+                }
+            ViewBag.Check = check;
+            ViewBag.MyCookie = MyCookie;
             return View(purchaseList);
         }
     }

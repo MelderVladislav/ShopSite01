@@ -27,7 +27,6 @@
         var cleanCookie = findCookieValue("order");       
        
         if (cleanCookie != "") {
-            alert(cleanCookie);
             if (isExists = cleanCookie.indexOf(productId) == -1) {              
                 cleanCookie = cleanCookie + productId + "&";
                 document.cookie = "order=" + cleanCookie + ";";
