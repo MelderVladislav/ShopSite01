@@ -14,7 +14,6 @@
 <p>Категория товаров: @temp.CATEGORY.CATEGORY_NAME</p>
 <p>Описание: @temp.CATEGORY.CATEGORY_DESCRIPTION</p>
 <br/>
-<p id="metka"></p>
 <input type="button" value="Очистить корзину" onclick="clearCookie();" />
 <h2>Товары</h2>
 
@@ -38,8 +37,6 @@
             document.cookie = "order=" + productId + "&;";
         }
 
-        var el = document.getElementById("metka");
-        el.innerHTML = findCookieValue("order");
     }
     function clearCookie()
     {

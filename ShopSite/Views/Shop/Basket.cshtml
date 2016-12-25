@@ -5,6 +5,18 @@
 }
 
 <h2>Ваши покупки </h2>
+<script>
+    function clearCookie() {
+        document.cookie = "order=";
+        location.reload();
+    }
+    function delCookie(delId)
+    {
+        var oldCookie = document.cookie;
+        document.cookie = oldCookie.replace(delId + "&", "");
+        location.reload();
+    }
+</script>
 @{ 
 
     int counter = 1;
@@ -14,10 +26,13 @@
 {
     foreach (PRODUCT prd in Model)
     {
-    <p>@{ @counter} @prd.PRODUCT_NAME - @prd.PRODUCT_PRICE галеонов </p>
+    <p>@{ @counter} @prd.PRODUCT_NAME - @prd.PRODUCT_PRICE галеонов <input type="button" value="-" onclick="delCookie(@prd.PRODUCT_ID)" /></p>
                 counter++;
                 commonPrice += prd.PRODUCT_PRICE;
             }
         }
 <h3>Общая сумма покупки: @commonPrice</h3>
+
+<input type="button" value="Очистить корзину" onclick="clearCookie();" />
+
 <input type="button" value="Перейти к оплате"/>
