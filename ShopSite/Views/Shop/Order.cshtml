@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Order</h2>
+@using (Html.BeginForm("OrderResult", "Shop")) 
+{
+    <input type="text" name="OrderMail"/>
+    <br/>
+    <input type="text" name="FullName" />
+    <br />
+    <input type="submit" name="submit" value="Отправить"/>
+}
+

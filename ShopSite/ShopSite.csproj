@@ -180,6 +180,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\OrderModel.cs" />
     <Compile Include="PRODUCT.cs">
       <DependentUpon>ProductEntities.tt</DependentUpon>
     </Compile>
@@ -261,6 +262,8 @@
     <Content Include="Views\Shop\Products.cshtml" />
     <Content Include="Views\Shop\HomePage.cshtml" />
     <Content Include="Views\Shop\Basket.cshtml" />
+    <Content Include="Views\Shop\Order.cshtml" />
+    <Content Include="Views\Shop\OrderResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

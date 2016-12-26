@@ -34,5 +34,6 @@
 <h3>Общая сумма покупки: @commonPrice</h3>
 
 <input type="button" value="Очистить корзину" onclick="clearCookie();" />
+<br/>
 
-<input type="button" value="Перейти к оплате"/>
+@Html.ActionLink("Перейти к оплате", "Order");

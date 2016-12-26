@@ -68,5 +68,55 @@ namespace ShopSite.Controllers
             ViewBag.MyCookie = MyCookie;
             return View(purchaseList);
         }
+        public ActionResult Order()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult OrderResult(Models.OrderModel MyModel)
+        {
+            
+            if (MyModel == null) return new EmptyResult();
+            string resultString = "<p>Запрос на сервер был получен в " + DateTime.Now + "</p>"+"<p>ФИО заказчика: "+MyModel.FullName+"</p>" 
+                +"<p>Адрес почтового ящика: "+MyModel.OrderMail+"</p>"+"<p>Список покупок:</p>";
+            string MyCookie = Request.Cookies["order"].Value;
+
+            string[] masProducts = MyCookie.Split('&');
+            u0263406_shopBaseEntities context = new u0263406_shopBaseEntities();
+            int tempId;
+           List<string> purchaseList = new List<string>();
+            List<PRODUCT> purchaseListProduct = new List<PRODUCT>();
+            PRODUCT tempProduct;
+            bool tempConvert;    
+            if (masProducts.Length != 0)
+                foreach (string str in masProducts)
+                {
+
+                    tempConvert = Int32.TryParse(str.ToString(), out tempId);
+                    if (tempConvert)
+                    {
+                        tempProduct = context.PRODUCT.Where(c => c.PRODUCT_ID == tempId).ToList().FirstOrDefault();
+                        if (tempProduct != null)
+                        {
+
+                            resultString += "<p>"+tempProduct.PRODUCT_NAME+ "</p>";
+                            purchaseListProduct.Add(tempProduct);
+                        }
+                    }
+
+                }
+            decimal sum=0;
+            foreach(PRODUCT pr in purchaseListProduct)
+            {
+                sum += pr.PRODUCT_PRICE;
+            }
+            string sumString = Convert.ToString(sum);
+            resultString += "Общая сумма: " + sumString;
+            MvcHtmlString mvcString = new MvcHtmlString(resultString);
+            
+            ViewBag.ResultString = mvcString;
+            return View();
+        }
     }
 }
