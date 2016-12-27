@@ -23,7 +23,7 @@ namespace ShopSite
         public int CATEGORY_ID { get; set; }
         public string CATEGORY_NAME { get; set; }
         public string CATEGORY_DESCRIPTION { get; set; }
-        public byte[] CATEGORY_PICTURE_ADDRESS { get; set; }
+        public string CATEGORY_PICTURE_ADDRESS { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRODUCT> PRODUCT { get; set; }

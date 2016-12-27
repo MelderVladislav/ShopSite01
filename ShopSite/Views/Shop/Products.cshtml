@@ -11,14 +11,14 @@
 @{ 
     var temp = Model.First();
 }
-<h2>temp.CATEGORY.CATEGORY_NAME</h2>
+<h1>@temp.CATEGORY.CATEGORY_NAME</h1>
 <p>Описание: @temp.CATEGORY.CATEGORY_DESCRIPTION</p>
 @if (temp.CATEGORY.CATEGORY_PICTURE_ADDRESS != null)
 {
     <img class="photo" src="@temp.CATEGORY.CATEGORY_PICTURE_ADDRESS"/>
 }
 <br/>
-<h2 class="headerCategory">Товары</h2>
+<h2 >Товары</h2>
 
 <script>
     window.onload=function()

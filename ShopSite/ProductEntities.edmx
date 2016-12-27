@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище u0263406_shopBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище u0263406_shopBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CATEGORY">
           <Key>
             <PropertyRef Name="CATEGORY_ID" />
@@ -12,7 +12,7 @@
           <Property Name="CATEGORY_ID" Type="int" Nullable="false" />
           <Property Name="CATEGORY_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CATEGORY_DESCRIPTION" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="CATEGORY_PICTURE_ADDRESS" Type="varbinary(max)" />
+          <Property Name="CATEGORY_PICTURE_ADDRESS" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
@@ -49,8 +49,7 @@
             <End Role="PRODUCT" EntitySet="PRODUCT" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="u0263406_shopBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -61,7 +60,7 @@
           <Property Name="CATEGORY_ID" Type="Int32" Nullable="false" />
           <Property Name="CATEGORY_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CATEGORY_DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CATEGORY_PICTURE_ADDRESS" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="CATEGORY_PICTURE_ADDRESS" Type="String" />
           <NavigationProperty Name="PRODUCT" Relationship="Self.FK_CATEGORYID" FromRole="CATEGORY" ToRole="PRODUCT" />
         </EntityType>
         <EntityType Name="PRODUCT">
