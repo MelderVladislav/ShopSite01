@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<CATEGORY>
+    <div id="categories">
+    <h3>Категории товаров</h3>
     @foreach (CATEGORY ct in Model)
     {
-       @Html.ActionLink(ct.CATEGORY_NAME, "Products", new { CategoryId = ct.CATEGORY_ID})
-    <br />
-       
+        @Html.ActionLink(ct.CATEGORY_NAME, "Products", new { CategoryId = ct.CATEGORY_ID })
+        <br />
+
     }
+</div>

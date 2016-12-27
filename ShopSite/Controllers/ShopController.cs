@@ -78,7 +78,7 @@ namespace ShopSite.Controllers
         {
             
             if (MyModel == null) return new EmptyResult();
-            string resultString = "<p>Запрос на сервер был получен в " + DateTime.Now + "</p>"+"<p>ФИО заказчика: "+MyModel.FullName+"</p>" 
+            string resultString = "<p>Запрос на сервер Косого переулка был получен " + DateTime.Now + "</p>"+"<p>ФИО заказчика: "+MyModel.FullName+"</p>" 
                 +"<p>Адрес почтового ящика: "+MyModel.OrderMail+"</p>"+"<p>Список покупок:</p>";
             string MyCookie = Request.Cookies["order"].Value;
 
@@ -112,7 +112,7 @@ namespace ShopSite.Controllers
                 sum += pr.PRODUCT_PRICE;
             }
             string sumString = Convert.ToString(sum);
-            resultString += "Общая сумма: " + sumString;
+            resultString += "Общая сумма: " + sumString+" галеонов";
             MvcHtmlString mvcString = new MvcHtmlString(resultString);
             
             ViewBag.ResultString = mvcString;

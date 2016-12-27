@@ -4,13 +4,14 @@
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Order</h2>
-@using (Html.BeginForm("OrderResult", "Shop")) 
+<h2>Заказ</h2>
+@using (Html.BeginForm("OrderResult", "Shop"))
 {
-    <input type="text" name="OrderMail"/>
-    <br/>
-    <input type="text" name="FullName" />
+    <p>Адрес электронной почты <input type="text" name="OrderMail" /></p>
     <br />
-    <input type="submit" name="submit" value="Отправить"/>
-}
+<p>Полное имя <input type="text" name="FullName" />
+</p>
+    <br />
+    <input type="submit" name="submit" value="Отправить сову" />
+    }
 

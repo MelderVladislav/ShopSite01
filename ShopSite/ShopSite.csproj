@@ -203,13 +203,27 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\backpict.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\hallows.png" />
     <Content Include="Content\mainstyle.css" />
-    <Content Include="Content\ProductsImages\wands\fenixwand.jpg" />
+    <Content Include="Content\perchament.jpg" />
+    <Content Include="Content\perchament2.png" />
+    <Content Include="Content\pergament.jpg" />
+    <Content Include="Content\ProductsImages\brooms\brooms.gif" />
+    <Content Include="Content\ProductsImages\brooms\firebolt.gif" />
+    <Content Include="Content\ProductsImages\brooms\nimbus2000.gif" />
+    <Content Include="Content\ProductsImages\cauldrons\cauldron1.gif" />
+    <Content Include="Content\ProductsImages\cauldrons\supercauldron.jpg" />
+    <Content Include="Content\ProductsImages\clothes\invisible.gif" />
+    <Content Include="Content\ProductsImages\wands\dubina.jpg" />
+    <Content Include="Content\ProductsImages\wands\fenixwand.gif" />
     <Content Include="Content\ProductsImages\brooms\flash.jpg" />
     <Content Include="Content\ProductsImages\brooms\nimbus-2000.jpg" />
     <Content Include="Content\ProductsImages\brooms\skolkovo.jpg" />
+    <Content Include="Content\ProductsImages\wands\selfi.gif" />
+    <Content Include="Content\ProductsImages\wands\wands.gif" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -267,8 +281,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\ProductsImages\cauldrons\" />
-    <Folder Include="Content\ProductsImages\clothes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

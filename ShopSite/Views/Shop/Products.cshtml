@@ -11,13 +11,31 @@
 @{ 
     var temp = Model.First();
 }
-<p>Категория товаров: @temp.CATEGORY.CATEGORY_NAME</p>
+<h2>temp.CATEGORY.CATEGORY_NAME</h2>
 <p>Описание: @temp.CATEGORY.CATEGORY_DESCRIPTION</p>
+@if (temp.CATEGORY.CATEGORY_PICTURE_ADDRESS != null)
+{
+    <img class="photo" src="@temp.CATEGORY.CATEGORY_PICTURE_ADDRESS"/>
+}
 <br/>
-<input type="button" value="Очистить корзину" onclick="clearCookie();" />
-<h2>Товары</h2>
+<h2 class="headerCategory">Товары</h2>
 
 <script>
+    window.onload=function()
+    {
+    
+        var mm = document.getElementsByClassName("adder");
+        for (i=0;i<mm.length;i++)
+        {
+            
+            mm[i].addEventListener("click", alertAdding);
+        }
+
+    }
+    function alertAdding()
+    {
+        alert("Товар добавлен в список покупок");
+    }
     function addCookie(productId)
     {
 
@@ -64,12 +82,13 @@
 </script>
 @foreach(PRODUCT prd in Model)
 {
-    <img src="@prd.PRODUCT_PICTURE_ADDRESS" width="150" height="100"/>
-    <p>Наименование: @prd.PRODUCT_NAME</p>
+    <h3 class="headers">@prd.PRODUCT_NAME</h3>
+    <img class="photo" src="@prd.PRODUCT_PICTURE_ADDRESS"/>
     <p>Описание: @prd.PRODUCT_DESCRIPTION</p>
     <p>Производитель: @prd.PRODUCTS_COUNTRY</p>
-    <p>Стоимость: @prd.PRODUCT_PRICE</p>
-    <input type="button" value="Добавить в корзину" onclick="addCookie(@Convert.ToString(prd.PRODUCT_ID.ToString()));"/>
+    <p>Стоимость: @prd.PRODUCT_PRICE галеонов</p>
+    <input class="adder" type="button" value="Заказать" onclick="addCookie(@Convert.ToString(prd.PRODUCT_ID.ToString()));"/>
+    <hr />
     <br/>
     <br/>
 }

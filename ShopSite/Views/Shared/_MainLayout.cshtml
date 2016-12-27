@@ -7,16 +7,19 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        <div id="nav">
+    <div id="contentField">
+       <div id="navCont">
+         <div id="nav">
             <ul>
-                <li><a href="">О нас</a></li>
-                <li>@Html.ActionLink("Товары", "Products", new { CategoryId = 1 })</li>
-                <li>@Html.ActionLink("Корзина", "Basket", "Shop")</li>
+                
+                <li>@Html.ActionLink("Каталог товаров", "Products", new { CategoryId = 1 })</li>
+                <li>@Html.ActionLink("Список покупок", "Basket", "Shop")</li>
+                <li>@Html.ActionLink("Описание магазина", "HomePage", "Shop")</li>
             </ul>
         </div>
-        
+       </div>
         <br />
+        
         @RenderBody()
     </div>
 </body>

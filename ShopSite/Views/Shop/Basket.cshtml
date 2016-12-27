@@ -15,12 +15,13 @@
         var oldCookie = document.cookie;
         document.cookie = oldCookie.replace(delId + "&", "");
         location.reload();
+        
     }
 </script>
 @{ 
 
     int counter = 1;
-    decimal commonPrice=0;
+    decimal commonPrice = 0;
 }
 @if (Model.Count != 0)
 {
@@ -33,7 +34,9 @@
         }
 <h3>Общая сумма покупки: @commonPrice</h3>
 
-<input type="button" value="Очистить корзину" onclick="clearCookie();" />
+<input type="button" value="Стереть список" onclick="clearCookie()" />
 <br/>
+<a href="@Url.Action("Order","Shop")">
+<input value="Сделать заказ" type="button"/>
+</a>
 
-@Html.ActionLink("Перейти к оплате", "Order");
